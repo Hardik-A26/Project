@@ -3,24 +3,68 @@
 #include<conio.h>
 void *fibonacci(); //Function in which Parent thread is generated
 void *series();    //fucntion in which child thread is generated
+int ar[10];
 main()
 {
-	
-pthread_t tp,tc;
+	printf("......WELCOME TO THE SYSTEM...... \n");
+pthread_t tp,tc;      //creating threads
 pthread_create(&tp,NULL,fibonacci,NULL);
+
+printf("PARENT THREAD CREATED \n");
+printf(" \n");
+printf(" \n");
+printf(" \n");
+printf(" \n");
+printf(" \n");
+printf("PARENT THREAD JOINED \n");printf(" \n");
+printf(" \n***********************");
+printf(" *********************** \n");
+
+printf("PLEASE ENTER THE NUMBER OF TERMS YOU NEED IN THE FIBONACCI SERIES \n ");
 pthread_create(&tc,NULL,series,NULL);
 pthread_join(tp,NULL);
+
+
+
+
 pthread_join(tc,NULL);
+
+
 
 }
 void *fibonacci()
 {
-	int n,a=0,b=1,s=0;
-printf("WELCOME TO THE SYSTEM...... /n");
-printf("PLEASE ENTER THE NUMBER OF TERMS YOU NEED IN THE FIBONACCI SERIES /n");	
-scanf("%d",&n);
-}
-void *series()
-{
+	int n,j;
 	
+scanf("%d",&n);
+printf("CHILD THREAD CREATED \n");
+printf("CHILD THREAD JOINED \n");
+
+series(n);
+printf(" \n \n CHILD THREAD ENDED\n \n");
+printf("YOUR SERIES IS :    ");
+for(j=0;j<n;j++)                       //loop in which parent thread prints the series
+{
+	printf("%d    ",ar[j]);
 }
+printf("\n");
+
+}
+void *series(int n)
+{
+	int i,a=0,b=1,s=0;
+	
+	ar[n];
+	ar[1]=a;
+	ar[2]=b;
+	for(i=3;i<n;i++)     //loop in which child thread stores the fibonacci terms in an array.
+	{s=a+b;
+		ar[i]=s;
+		a=b;
+		b=s;
+		s=0;}
+
+sleep(1);	}
+	
+	
+	
