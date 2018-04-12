@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<pthread.h>
+#include<conio.h>
+void *fibonacci(); //Function in which Parent thread is generated
+void *series();    //fucntion in which child thread is generated
+main()
+{
+	
+pthread_t tp,tc;
+pthread_create(&tp,NULL,fibonacci,NULL);
+pthread_create(&tc,NULL,series,NULL);
+pthread_join(tp,NULL);
+pthread_join(tc,NULL);
+
+}
+void *fibonacci()
+{
+	int n,a=0,b=1,s=0;
+printf("WELCOME TO THE SYSTEM...... /n");
+printf("PLEASE ENTER THE NUMBER OF TERMS YOU NEED IN THE FIBONACCI SERIES /n");	
+scanf("%d",&n);
+}
+void *series()
+{
+	
+}
